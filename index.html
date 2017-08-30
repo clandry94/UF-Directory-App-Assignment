@@ -58,8 +58,6 @@
                   <input type="text" id="addr-input" class="form-control" placeholder="Address" ng-model="addr"/>
                 </br>
                 </div>
-
-                <!-- "Add modal content" -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addListing()">Add</button>
@@ -71,7 +69,7 @@
         <div class="col-md-6">
           <div class="jumbotron">
             <h2>Detailed Information</h2>
-            <div ng-if="detailedInfo">
+            <div>
               <p ng-if="detailedInfo.code">
                 Code: {{ detailedInfo.code }}
               </p>
@@ -86,12 +84,6 @@
               </p>
 
             </div>
-            <!-- 
-
-              Include a way to display detailed information about an individual listing:
-                   * consider how to use ng-click within the the table to implement this feature
-
-             -->
           </div>
         </div>
       </div>
