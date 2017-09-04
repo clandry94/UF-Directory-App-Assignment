@@ -1,11 +1,27 @@
+var mongoose = require('mongoose'),
+    Listing = require('./ListingSchema.js'),
+    config = require('./config');
+
+var options = {
+  user: 'app',
+  pass: 'password0'
+}
+
+mongoose.connect(config.db.uri, options);
 /* Fill out these functions using Mongoose queries*/
+
 
 var findLibraryWest = function() {
   /* 
     Find the document that contains data corresponding to Library West,
     then log it to the console. 
    */
+  Listing.find().where('name').eq("Library West").exec(function(err, listings) {
+    if (err) throw err;
+    console.log(listings);
+  });
 };
+
 var removeCable = function() {
   /*
     Find the document with the code 'CABL'. This cooresponds with courses that can only be viewed 
