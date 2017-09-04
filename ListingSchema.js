@@ -14,12 +14,6 @@ var listingSchema = new Schema({
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 listingSchema.pre('save', function(next) {
-  if(!this.name) {
-  }
-
-  if(!this.code) {
-  }
-  
   var currentDate = Date.now();
   
   if(!this.created_at) {

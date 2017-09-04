@@ -12,13 +12,7 @@ var fs = require('fs'),
 
 
 
-/* Connect to your database */
-var options = {
-  user: 'app',
-  pass: 'password0'
-}
-
-mongoose.connect(config.db.uri, options);
+mongoose.connect(config.db.uri);
 
 var listEntries = Listings["entries"]
 var i = 0;
