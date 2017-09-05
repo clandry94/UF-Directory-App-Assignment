@@ -25,23 +25,35 @@ var removeCable = function() {
    */
   Listing.findOne({ 'code' : 'CABL'}).exec(function(err, listing) {
     if (err) throw err;
+    
     console.log(listing);
+    
     listing.remove(function(err) {
       if (err) throw err;
-      console.log('CABL was successfully deleted!');
     });
   });
 };
 
 
-var updatePhelpsMemorial = function() {
+var updatePhelpsLab = function() {
   /*
     Phelps Memorial Hospital Center's address is incorrect. Find the listing, update it, and then 
     log the updated document to the console. 
    */
-  Listing.findOne({ 'name' : 'Phelps Memorial Hospital Center'}).exec(function(err, listing) {
+  var correctAddress = '686 Museum Rd. Gainesville, FL 32603, United States';
+  
+  Listing.findOne({ 'name' : 'Phelps Laboratory'}).exec(function(err, listing) {
     if (err) throw err;
-    console.log(listing);
+    
+    if(listing.address != correctAddress) {
+      listing.address = correctAddress;
+    }
+    
+    listing.save(function(err) {
+      if (err) throw err;
+      
+      console.log(listing);
+    });
   });
 };
 
@@ -58,5 +70,5 @@ var retrieveAllListings = function() {
 
 findLibraryWest();
 removeCable();
-//updatePhelpsMemorial();
+updatePhelpsLab();
 retrieveAllListings();
